@@ -1,0 +1,13 @@
+extends layout
+
+block content
+  div#login
+    h1=intro
+    p
+     form(action="/auth/login_process" method="post")
+      p
+       input#login1(type="text" name="email" placeholder="email")
+      p
+       input#login1(type="password" name="password" placeholder="password")
+      p
+       input#login2(type="submit" value="LOGIN")

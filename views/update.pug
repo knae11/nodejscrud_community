@@ -1,0 +1,11 @@
+extends layout
+
+block content
+  div#homepage
+      
+        .postcontainer
+         form(action=`/post/${postid}/update_process` method='post')
+          .input-group
+           input(type='text' name='title' value=extitle)
+           input(type='text' name='content' maxlength=140 value=excontent)
+           button.createbtn(type='submit') UPDATE

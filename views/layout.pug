@@ -1,0 +1,19 @@
+doctype html
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/stylesheets/style.css')
+  body
+   .container
+    .profile-wrap
+      .profile
+        if user && user.id
+          div.user-name hello #{user.nick}
+          a#logout.btn(href='/auth/logout') LOGOUT
+        else
+          if loginError
+           .error-message= loginError
+          p
+            a(href="/auth/login") LOGIN
+            a(href="/auth/register") REGISTER
+    block content

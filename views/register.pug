@@ -1,0 +1,17 @@
+extends layout
+
+block content
+  div#register
+    h1=intro
+    p
+     form(action="/auth/register_process" method="post")
+      p
+       input#register1(type="text" name="email" placeholder="email")
+      p
+       input#register1(type="text" name="nick" placeholder="nickname")
+      p
+       input#register1(type="password" name="password" placeholder="password") 
+      p
+       input#register1(type="password" name="password2" placeholder="password")
+      p
+       input#register2(type="submit" value="REGISTER")

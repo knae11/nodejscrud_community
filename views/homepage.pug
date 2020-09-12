@@ -1,0 +1,27 @@
+extends layout
+
+block content
+  div#homepage
+      h1=intro
+      if user
+        .postcontainer
+         form(action='/post' method='post')
+          .input-group
+           input(type='text' name='title' placeholder='title')
+           textarea(name='content' maxlength=140 placeholder='write sth')
+           button.createbtn(type='submit') CREATE
+      .postlist
+        each post in posts
+         li.post
+          input.post_user_id(type="hidden" value=post.user.id)
+          input.post_id(type="hidden" value=post.id)
+          .post_nick=post.user.nick
+          .post_title=post.title
+          .post_created=post.createdAt
+          .post_content=post.content
+          if user && user.id === post.user.id 
+           a(href=`post/${post.id}/update`) UPDATE
+           form(style="display:inline", action=`/post/${post.id}/delete` method="post" )
+            button(type="submit") DELETE
+           
+         
